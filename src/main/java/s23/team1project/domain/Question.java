@@ -12,10 +12,10 @@ public class Question {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	private String question;
+	private String question; 
 	
 	@ManyToOne
-	@JoinColumn(name="query_id")
+	@JoinColumn(name = "query_id")
 	private Query query;
 
 	public Question() {}

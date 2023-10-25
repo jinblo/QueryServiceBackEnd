@@ -24,7 +24,7 @@ public class QueryController {
 		return "index";
 	}
 	
-	@GetMapping("addQuery")
+	@GetMapping("addquery")
 	public String addQuery(Model model) {
 		model.addAttribute("query", new Query());
 		return "addquery";

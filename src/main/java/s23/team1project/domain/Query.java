@@ -20,7 +20,7 @@ public class Query {
 	private String title;
 	private String description;
 	
-	@OneToMany(cascade=CascadeType.ALL, mappedBy="question")
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "query")
 	@JsonIgnore
 	private List <Question> questions;
 
