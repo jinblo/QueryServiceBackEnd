@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css"
+	th:href="@{/css/bootstrap.min.css}" />
+</head>
+
+<body>
+	<div class="container">
+		<h1>Queries</h1>
+		<p>
+			<a href="/addquery">Add a new query</a>
+		</p>
+		<table class="table table-striped">
+			<tr>
+				<th>Query</th>
+				<th>Description</th>
+				<th>add a question</th>
+			</tr>
+			<tr th:each="query : ${queries}">
+				<td th:text="${query.title}"></td>
+				<td th:text="${query.description}"></td>
+			</tr>
+		</table>
+	</div>
+</body>
+
+</html>

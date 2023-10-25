@@ -15,7 +15,7 @@ public class Question {
 	private String question;
 	
 	@ManyToOne
-	@JoinColumn(name = "query_id")
+	@JoinColumn(name="query_id")
 	private Query query;
 
 	public Question() {}
