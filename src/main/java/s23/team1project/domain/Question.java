@@ -11,7 +11,7 @@ import jakarta.persistence.ManyToOne;
 public class Question {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private Long id;
 	private String question; 
 	
 	@ManyToOne
@@ -21,15 +21,16 @@ public class Question {
 	public Question() {}
 	
 	public Question(String question, Query query) {
+		super();
 		this.question = question;
 		this.query = query;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

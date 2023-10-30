@@ -17,11 +17,13 @@
 		</p>
 		<table class="table table-striped">
 			<tr>
+				<th>ID</th>
 				<th>Query</th>
 				<th>Description</th>
 				<th>add a question</th>
 			</tr>
 			<tr th:each="query : ${queries}">
+				<td th:text="${query.id}"></td>
 				<td th:text="${query.title}"></td>
 				<td th:text="${query.description}"></td>
 			</tr>
