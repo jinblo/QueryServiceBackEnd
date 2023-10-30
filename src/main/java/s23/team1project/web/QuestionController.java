@@ -44,5 +44,10 @@ public class QuestionController {
     public @ResponseBody List<Question> questionListRest() {	
         return (List<Question>) questionRepo.findAll();
     }
+	
+	@RequestMapping(value="/question/{id}", method = RequestMethod.GET)
+    public @ResponseBody Optional<Question> findQuestionRest(@PathVariable("id") Long questionId) {	
+    	return questionRepo.findById(questionId);
+    }
 
 }
