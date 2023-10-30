@@ -26,6 +26,8 @@
 				<td th:text="${query.id}"></td>
 				<td th:text="${query.title}"></td>
 				<td th:text="${query.description}"></td>
+				<td><a th:href="@{query/{id}/addquestion(id=${query.id})}">add question</a></td>
+				<td th:text="${query.questions.size}"></td>
 			</tr>
 		</table>
 	</div>

@@ -3,7 +3,7 @@
 	xmlns:th="http://www.thymeleaf.org">
 
 <head>
-<title>Add Query</title>
+<title>Add Question</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css"
 	th:href="@{/css/bootstrap.min.css}" />
@@ -16,8 +16,8 @@
 			<form th:object="${question}" th:action="@{savequestion}"
 				method="post">
 				<div class="form-group">
-					<label for="question">Question</label> <input type="text"
-						id="question" th:field="${question.question}" class="form-control">
+					<label for="q">Question</label> <input type="text" id="q"
+						th:field="*{q}" class="form-control">
 				</div>
 				<div>
 					<br /> <input type="submit" value="Save" class="btn btn-success"></input>

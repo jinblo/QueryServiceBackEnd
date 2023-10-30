@@ -9,10 +9,11 @@ import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Question {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	private String question; 
+	private long id;
+	private String q; 
 	
 	@ManyToOne
 	@JoinColumn(name = "query_id")
@@ -20,26 +21,27 @@ public class Question {
 
 	public Question() {}
 	
-	public Question(String question, Query query) {
+	public Question(String q, Query query) {
 		super();
-		this.question = question;
+		this.q = q;
 		this.query = query;
 	}
 
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
-	public String getQuestion() {
-		return question;
+
+	public String getQ() {
+		return q;
 	}
 
-	public void setQuestion(String question) {
-		this.question = question;
+	public void setQ(String q) {
+		this.q = q;
 	}
 
 	public Query getQuery() {
