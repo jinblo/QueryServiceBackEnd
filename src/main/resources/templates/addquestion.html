@@ -15,6 +15,7 @@
 		<div>
 			<form th:object="${question}" th:action="@{savequestion}"
 				method="post">
+				<input type="hidden" th:field="*{id}">
 				<div class="form-group">
 					<label for="q">Question</label> <input type="text" id="q"
 						th:field="*{q}" class="form-control">

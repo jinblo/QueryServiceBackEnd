@@ -7,6 +7,8 @@ import org.springframework.context.annotation.Bean;
 
 import s23.team1project.domain.Query;
 import s23.team1project.domain.QueryRepository;
+import s23.team1project.domain.Question;
+import s23.team1project.domain.QuestionRepository;
 
 @SpringBootApplication
 public class Team1projectApplication {
@@ -16,9 +18,11 @@ public class Team1projectApplication {
 	}
 	
 	@Bean
-	public CommandLineRunner demoData(QueryRepository queryRepo) {
+	public CommandLineRunner demoData(QueryRepository queryRepo, QuestionRepository questionRepo) {
 		return (args) -> {
 			queryRepo.save(new Query("test title", "test description"));
+			questionRepo.save(new Question("test", queryRepo.findById((long) 1).get()));
+			questionRepo.save(new Question("test2", queryRepo.findById((long) 1).get()));
 		};
 	}
 
