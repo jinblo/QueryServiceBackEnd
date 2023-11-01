@@ -12,21 +12,23 @@
 <body>
 	<div class="container">
 		<h1>Queries</h1>
+		<br />
 		<p>
-			<a href="/addquery" class="btn btn-primary">Add a new query</a>
+			<a href="/addquery" class="btn btn-success">New Query</a>
 		</p>
 		<table class="table table-striped">
 			<tr>
 				<th>ID</th>
 				<th>Query</th>
 				<th>Description</th>
-				<th>add a question</th>
+				<th>Add a Question</th>
+				<th>Amount</th>
 			</tr>
 			<tr th:each="query : ${queries}">
 				<td th:text="${query.id}"></td>
 				<td th:text="${query.title}"></td>
 				<td th:text="${query.description}"></td>
-				<td><a th:href="@{query/{id}/addquestion(id=${query.id})}" class="btn btn-primary">add question</a></td>
+				<td><a th:href="@{query/{id}/addquestion(id=${query.id})}" class="btn btn-primary">Add</a></td>
 				<td th:text="${query.questions.size}"></td>
 			</tr>
 		</table>
