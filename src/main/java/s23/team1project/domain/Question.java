@@ -1,5 +1,7 @@
 package s23.team1project.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,6 +19,7 @@ public class Question {
 	
 	@ManyToOne
 	@JoinColumn(name = "query_id")
+	@JsonIgnore
 	private Query query;
 
 	public Question() {}

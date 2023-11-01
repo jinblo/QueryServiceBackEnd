@@ -21,7 +21,6 @@ public class Query {
 	private String description;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "query")
-	@JsonIgnore
 	private List <Question> questions;
 
 	public Query() {}
