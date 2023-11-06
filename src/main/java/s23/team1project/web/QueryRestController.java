@@ -22,26 +22,26 @@ public class QueryRestController {
 	@Autowired
 	private QuestionRepository questionRepo;
 	
-	//Listing queries
+	//Listing all queries
 	@GetMapping("/queries")
     public List<Query> findQueries() {	
         return (List<Query>) queryRepo.findAll();
     }
 	
-	//Find a query by id
-	@GetMapping("/queries/{id}")
-    public Optional<Query> findQueryById(@PathVariable("id") Long id) {	
-        return queryRepo.findById(id);
+	//Show a query by query id
+	@GetMapping("/queries/{queryId}")
+    public Optional<Query> findQueryById(@PathVariable("queryId") Long queryId) {	
+        return queryRepo.findById(queryId);
     }
 	
-	//Listing questions of specific query by query id
-	@GetMapping("/queries/{id}/questions")
-    public List<Question> findByQuery(@PathVariable("id") Long queryId) {	
+	//Listing questions of a specific query by query id
+	@GetMapping("/queries/{queryId}/questions")
+    public List<Question> findByQuery(@PathVariable("queryId") Long queryId) {	
         return (List<Question>) questionRepo.findByQuery(queryRepo.findById(queryId).get());
     }
 	
 	//Tarvitaanko?
-	/*@GetMapping("/queries/{id}/questions/{questionId}")
+	/*@GetMapping("/queries/{queryId}/questions/{questionId}")
     public Optional<Question> findQuestionByQuery(@PathVariable("questionId") Long questionId) {	
     	return questionRepo.findById(questionId);
     }*/
