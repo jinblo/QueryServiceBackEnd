@@ -28,7 +28,8 @@ public class QuestionController {
 	
 	// Question adding
 	@GetMapping("query/{id}/addquestion")
-	public String addQuestion(Model model) {
+	public String addQuestion(@PathVariable("id") Long queryId, Model model) {
+		model.addAttribute("query", queryRepo.findById(queryId).get());
 		model.addAttribute("question", new Question());
 		return "addquestion";
 	}
