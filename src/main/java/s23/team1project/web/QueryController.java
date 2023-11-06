@@ -24,26 +24,26 @@ public class QueryController {
 	private QuestionRepository questionRepo;
 	@Autowired
 	private QueryRepository queryRepo;
-	
-	//Query listing
+
+	// Query listing
 	@GetMapping("index")
 	public String index(Model model) {
 		model.addAttribute("queries", queryRepo.findAll());
 		return "index";
 	}
-	
-	//Query adding
+
+	// Query adding
 	@GetMapping("addquery")
 	public String addQuery(Model model) {
 		model.addAttribute("query", new Query());
 		return "addquery";
 	}
-	
-	//Query saving
+
+	// Query saving
 	@PostMapping("savequery")
 	public String saveQuery(Query query) {
 		queryRepo.save(query);
 		return "redirect:index";
 	}
-	
+
 }

@@ -20,20 +20,20 @@ import s23.team1project.domain.QuestionRepository;
 
 @Controller
 public class QuestionController {
-	
+
 	@Autowired
 	private QuestionRepository questionRepo;
 	@Autowired
 	private QueryRepository queryRepo;
-	
+
 	// Question adding
 	@GetMapping("query/{id}/addquestion")
 	public String addQuestion(Model model) {
 		model.addAttribute("question", new Question());
 		return "addquestion";
 	}
-	
-	//Question saving
+
+	// Question saving
 	@PostMapping("query/{id}/savequestion")
 	public String saveQuestion(@PathVariable("id") Long queryId, Question question) {
 		Query query = queryRepo.findById(queryId).get();
