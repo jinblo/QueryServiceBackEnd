@@ -15,7 +15,7 @@ public class Question {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	private String q; 
+	private String questionText; 
 	
 	@ManyToOne
 	@JoinColumn(name = "query_id")
@@ -24,9 +24,9 @@ public class Question {
 
 	public Question() {}
 	
-	public Question(String q, Query query) {
+	public Question(String questionText, Query query) {
 		super();
-		this.q = q;
+		this.questionText = questionText;
 		this.query = query;
 	}
 
@@ -38,13 +38,12 @@ public class Question {
 		this.id = id;
 	}
 
-
-	public String getQ() {
-		return q;
+	public String getQuestionText() {
+		return questionText;
 	}
 
-	public void setQ(String q) {
-		this.q = q;
+	public void setQuestionText(String questionText) {
+		this.questionText = questionText;
 	}
 
 	public Query getQuery() {
