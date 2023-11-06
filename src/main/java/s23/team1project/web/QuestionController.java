@@ -26,28 +26,20 @@ public class QuestionController {
 	@Autowired
 	private QueryRepository queryRepo;
 	
+	// Question adding
 	@GetMapping("query/{id}/addquestion")
-	public String addquestion(Model model) {
+	public String addQuestion(Model model) {
 		model.addAttribute("question", new Question());
 		return "addquestion";
 	}
 	
+	//Question saving
 	@PostMapping("query/{id}/savequestion")
-	public String savequestion(@PathVariable("id") Long queryId, Question question) {
+	public String saveQuestion(@PathVariable("id") Long queryId, Question question) {
 		Query query = queryRepo.findById(queryId).get();
 		question.setQuery(query);
 		questionRepo.save(question);
 		return "redirect:../../index";
 	}
-	
-	@RequestMapping(value="/questions", method = RequestMethod.GET)
-    public @ResponseBody List<Question> questionListRest() {	
-        return (List<Question>) questionRepo.findAll();
-    }
-	
-	@RequestMapping(value="/question/{id}", method = RequestMethod.GET)
-    public @ResponseBody Optional<Question> findQuestionRest(@PathVariable("id") Long questionId) {	
-    	return questionRepo.findById(questionId);
-    }
 
 }

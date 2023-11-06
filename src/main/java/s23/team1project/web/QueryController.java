@@ -25,32 +25,25 @@ public class QueryController {
 	@Autowired
 	private QueryRepository queryRepo;
 	
+	//Query listing
 	@GetMapping("index")
 	public String index(Model model) {
 		model.addAttribute("queries", queryRepo.findAll());
 		return "index";
 	}
 	
+	//Query adding
 	@GetMapping("addquery")
 	public String addQuery(Model model) {
 		model.addAttribute("query", new Query());
 		return "addquery";
 	}
 	
+	//Query saving
 	@PostMapping("savequery")
 	public String saveQuery(Query query) {
 		queryRepo.save(query);
 		return "redirect:index";
 	}
-	
-	@RequestMapping(value="/queries", method = RequestMethod.GET)
-    public @ResponseBody List<Query> queryListRest() {	
-        return (List<Query>) queryRepo.findAll();
-    }
-	
-	@RequestMapping(value="/query/{id}", method = RequestMethod.GET)
-    public @ResponseBody List<Question> findByQuery(@PathVariable("id") Long queryId) {	
-        return (List<Question>) questionRepo.findByQuery(queryRepo.findById(queryId).get());
-    }
 	
 }
