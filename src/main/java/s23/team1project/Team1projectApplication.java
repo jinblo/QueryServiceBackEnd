@@ -20,11 +20,13 @@ public class Team1projectApplication {
 	@Bean
 	public CommandLineRunner demoData(QueryRepository queryRepo, QuestionRepository questionRepo) {
 		return (args) -> {
-			queryRepo.save(new Query("test title", "test description"));
+			queryRepo.save(new Query("Opintojaksopalaute", "Anna palautetta opintojaksosta"));
 			queryRepo.save(new Query("query 2", "description 2"));
 			queryRepo.save(new Query("query 3", "description 3"));
-			questionRepo.save(new Question("test", queryRepo.findById((long) 1).get()));
-			questionRepo.save(new Question("test2", queryRepo.findById((long) 1).get()));
+			questionRepo.save(new Question("Miten arvioisit oman oppimisen toteutumista?", queryRepo.findById((long) 1).get()));
+			questionRepo.save(new Question("Mitkä asiat edistivät oppimistasi?", queryRepo.findById((long) 1).get()));
+			questionRepo.save(new Question("Miten kehittäisit toteutusta, jotta osaamistavoitteet saavutettaisiin paremmin?", queryRepo.findById((long) 1).get()));
+			questionRepo.save(new Question("Haluatko antaa muuta palautetta toteutuksesta?", queryRepo.findById((long) 1).get()));
 			questionRepo.save(new Question("test", queryRepo.findById((long) 2).get()));
 			questionRepo.save(new Question("test2", queryRepo.findById((long) 2).get()));
 
