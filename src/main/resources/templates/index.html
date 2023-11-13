@@ -21,13 +21,14 @@
 				<th>ID</th>
 				<th>Query</th>
 				<th>Description</th>
-				<th>Questions</th>
+				<th colspan="2">Questions</th>
 			</tr>
 			<tr th:each="query : ${queries}">
 				<td th:text="${query.id}"></td>
 				<td th:text="${query.title}"></td>
 				<td th:text="${query.description}"></td>
 				<td><a th:href="@{query/{id}/listquestions(id=${query.id})}" class="btn btn-primary" th:text="'Questions - (' + ${query.questions.size} + ')'"></a></td>
+				<td><a th:href="@{deletequery/{id}(id=${query.id})}" class="btn btn-danger" th:text="'Delete'"></a></td>
 			</tr>
 		</table>
 	</div>

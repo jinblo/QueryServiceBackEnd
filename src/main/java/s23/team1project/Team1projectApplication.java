@@ -21,8 +21,14 @@ public class Team1projectApplication {
 	public CommandLineRunner demoData(QueryRepository queryRepo, QuestionRepository questionRepo) {
 		return (args) -> {
 			queryRepo.save(new Query("test title", "test description"));
+			queryRepo.save(new Query("query 2", "description 2"));
+			queryRepo.save(new Query("query 3", "description 3"));
 			questionRepo.save(new Question("test", queryRepo.findById((long) 1).get()));
 			questionRepo.save(new Question("test2", queryRepo.findById((long) 1).get()));
+			questionRepo.save(new Question("test", queryRepo.findById((long) 2).get()));
+			questionRepo.save(new Question("test2", queryRepo.findById((long) 2).get()));
+
+
 		};
 	}
 

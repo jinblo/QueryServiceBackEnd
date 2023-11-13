@@ -20,11 +20,12 @@
 		<table class="table table-striped">
 			<tr>
 				<th>ID</th>
-				<th>Question</th>
+				<th colspan="2">Question</th>
 			</tr>
 			<tr th:each="question : ${questions}">
 				<td th:text="${question.id}"></td>
 				<td th:text="${question.questionText}"></td>
+				<td><a th:href="@{deletequestion/{id}(id=${question.id})}" class="btn btn-danger" th:text="'Delete'"></a></td>
 			</tr>
 		</table>
 	</div>

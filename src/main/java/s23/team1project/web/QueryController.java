@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import s23.team1project.domain.Query;
@@ -34,6 +35,12 @@ public class QueryController {
 	public String saveQuery(Query query) {
 		queryRepo.save(query);
 		return "redirect:index";
+	}
+	
+	@GetMapping("deletequery/{id}")
+	public String deleteQuery(@PathVariable ("id") Long id) {
+		queryRepo.deleteById(id);
+		return "redirect:/index";
 	}
 
 }
