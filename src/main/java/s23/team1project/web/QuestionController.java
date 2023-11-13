@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,6 +26,12 @@ public class QuestionController {
 	private QuestionRepository questionRepo;
 	@Autowired
 	private QueryRepository queryRepo;
+	
+	@GetMapping("query/{id}/listquestions")
+	public String showQuestions(@PathVariable("id") Long queryId, Model model) {
+		model.addAttribute("questions", questionRepo.findByQuery(queryRepo.findById(queryId).get()));
+		return "listquestions";
+	}
 
 	// Question adding
 	@GetMapping("query/{id}/addquestion")
@@ -40,7 +47,14 @@ public class QuestionController {
 		Query query = queryRepo.findById(queryId).get();
 		question.setQuery(query);
 		questionRepo.save(question);
-		return "redirect:../../index";
+		return "redirect:../{id}/listquestions";
+	}
+	
+	// Question deleting under construction (buttons missing)
+	@GetMapping("query/{id}/questions/{questionId}")
+	public String deleteQuestion(@PathVariable("questionId") Long questionId) {
+		questionRepo.deleteById(questionId);
+		return "redirect:../{id}/listquestions";
 	}
 
 }
