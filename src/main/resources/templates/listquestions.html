@@ -11,7 +11,9 @@
 
 <body>
 	<div class="container">
-		<h1>Questions</h1>
+		<h1 th:text="'Questions'">Questions</h1>
+		<br />
+		<h4 th:text="${questions[0].query.title}"></h4>
 		<br />
 		<p>
 			<a th:href="@{/index}" class="btn btn-primary">Queries</a>
