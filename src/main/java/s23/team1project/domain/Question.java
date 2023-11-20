@@ -37,6 +37,14 @@ public class Question {
 		this.query = query;
 	}
 
+	public List<Answer> getAnswers() {
+		return answers;
+	}
+
+	public void setAnswers(List<Answer> answers) {
+		this.answers = answers;
+	}
+
 	public long getId() {
 		return id;
 	}
