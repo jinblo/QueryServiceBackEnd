@@ -80,13 +80,5 @@ public class QueryRestController {
 		return answerRepo.findAll();
 	}
 	
-	//Ei toimi
-	//Listing answers to questions by query id
-	@GetMapping("/answers/{queryId}")
-	public Iterable<Answer> findAnswersByQuery(@PathVariable("queryId") Long queryId) {
-		(List<Answer>) answers = answerRepo.findByQuestion(questionRepo.findByQuery(queryRepo.findById(queryId).get()))
-		return (Iterable<Answer>) answerRepo.findAllById();
-	}
-	
 
 }

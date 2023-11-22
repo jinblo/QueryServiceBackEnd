@@ -5,6 +5,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import s23.team1project.domain.Answer;
+import s23.team1project.domain.AnswerRepository;
 import s23.team1project.domain.Query;
 import s23.team1project.domain.QueryRepository;
 import s23.team1project.domain.Question;
@@ -18,7 +20,7 @@ public class Team1projectApplication {
 	}
 	
 	@Bean
-	public CommandLineRunner demoData(QueryRepository queryRepo, QuestionRepository questionRepo) {
+	public CommandLineRunner demoData(QueryRepository queryRepo, QuestionRepository questionRepo, AnswerRepository answerRepo) {
 		return (args) -> {
 			queryRepo.save(new Query("Opintojaksopalaute", "Anna palautetta opintojaksosta"));
 			queryRepo.save(new Query("query 2", "description 2"));
@@ -29,6 +31,7 @@ public class Team1projectApplication {
 			questionRepo.save(new Question("Haluatko antaa muuta palautetta toteutuksesta?", queryRepo.findById((long) 1).get()));
 			questionRepo.save(new Question("test", queryRepo.findById((long) 2).get()));
 			questionRepo.save(new Question("test2", queryRepo.findById((long) 2).get()));
+			answerRepo.save(new Answer("vastaus", questionRepo.findById((long) 1).get()));
 
 
 		};

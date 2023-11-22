@@ -28,6 +28,9 @@ public class Question {
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "question")
 	private List <Answer> answers;
+	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "question")
+	private List <AnswerOption> answerOptions;
 
 	public Question() {}
 	
