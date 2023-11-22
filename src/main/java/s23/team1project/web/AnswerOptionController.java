@@ -25,7 +25,7 @@ public class AnswerOptionController {
 	// Adding AnswerOption
 	@GetMapping("query/{queryId}/question/{questionId}/addansweroption")
 	public String addQuestion(@PathVariable("questionId") Long questionId, Model model) {
-		model.addAttribute("question", questionRepo.findById(questionId));
+		model.addAttribute("question", questionRepo.findById(questionId).get());
 		model.addAttribute("answerOption", new AnswerOption());
 		return "addansweroption";
 	}
