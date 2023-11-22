@@ -19,6 +19,7 @@ public class Question {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+	private Type type;
 	private String questionText; 
 	
 	@ManyToOne
@@ -54,6 +55,22 @@ public class Question {
 
 	public void setId(long id) {
 		this.id = id;
+	}
+
+	public Type getType() {
+		return type;
+	}
+
+	public void setType(Type type) {
+		this.type = type;
+	}
+
+	public List<AnswerOption> getAnswerOptions() {
+		return answerOptions;
+	}
+
+	public void setAnswerOptions(List<AnswerOption> answerOptions) {
+		this.answerOptions = answerOptions;
 	}
 
 	public String getQuestionText() {
