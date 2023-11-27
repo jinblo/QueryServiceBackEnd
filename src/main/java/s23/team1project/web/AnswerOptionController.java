@@ -48,4 +48,11 @@ public class AnswerOptionController {
 		return "redirect:listansweroptions";
 	}
 	
+	// Deleting AnswerOption
+	@GetMapping("query/{queryId}/question/{questionId}/deleteansweroption/{answerOptionId}")
+	public String deleteAnswerOption(@PathVariable("answerOptionId") Long id) {
+		answerOptionRepo.deleteById(id);
+		return "redirect:../listansweroptions";
+	}
+	
 }

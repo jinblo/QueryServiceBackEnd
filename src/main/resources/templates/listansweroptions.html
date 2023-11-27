@@ -11,7 +11,7 @@
 
 <body>
 	<div class="container">
-		<h1 th:text="'Answer options'"></h1>
+		<h1 th:text="'Answer Options'"></h1>
 		<br />
 		<h4 th:text="${question.questionText}"></h4>
 		<br />
@@ -24,10 +24,12 @@
 			<tr>
 				<th>ID</th>
 				<th>Answer Option</th>
+				<th></th>
 			</tr>
 			<tr th:each="answeroption : ${answeroptions}">
 				<td th:text="${answeroption.id}"></td>
-				<td th:text="${answeroption.answerOptionText}"></td>				
+				<td th:text="${answeroption.answerOptionText}"></td>	
+				<td><a th:href="@{deleteansweroption/{id}(id=${answeroption.id})}" class="btn btn-danger" th:text="'Delete'"></a></td>			
 			</tr>
 		</table>
 	</div>
