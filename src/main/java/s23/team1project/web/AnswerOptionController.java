@@ -34,6 +34,7 @@ public class AnswerOptionController {
 	@PostMapping("query/{queryId}/question/{questionId}/saveansweroption")
 	public String saveAnswerOption(@PathVariable("questionId") Long questionId, AnswerOption answerOption) {
 		Question question = questionRepo.findById(questionId).get();
+		answerOption.setQuestion(question);
 		answerOptionRepo.save(answerOption);
 		return "redirect:../../../{queryId}/listquestions";
 	}

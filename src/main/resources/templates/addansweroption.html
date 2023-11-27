@@ -18,12 +18,13 @@
 		<div>
 			<form th:object="${answerOption}" th:action="@{saveansweroption}"
 				method="post">
-				<select id="question"
+				<!-- tää ei toimi oikein
+				<select id="question" disabled
 						th:field="*{question}" class="form-control">
 						<option th:each="question: ${question}"
-							th:value="${question.id}" th:text="${question.id}"></option>
+							th:value="${question.id}" th:text="${question.questionText}"></option>
 					</select>
-				<input type="text" th:field="*{question}" th:value="${{question.id}}"></input>
+				<input type="text" th:field="*{question}" th:value="${{question.id}}"></input> -->
 				<div class="form-group">
 					<label for="answerOptionText">Answer Option</label> <input type="text" id="answerOptionText"
 						th:field="*{answerOptionText}" class="form-control">
