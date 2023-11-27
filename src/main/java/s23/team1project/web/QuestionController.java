@@ -11,6 +11,8 @@ import s23.team1project.domain.Query;
 import s23.team1project.domain.QueryRepository;
 import s23.team1project.domain.Question;
 import s23.team1project.domain.QuestionRepository;
+import s23.team1project.domain.Type;
+//import s23.team1project.domain.Type;
 
 @Controller
 public class QuestionController {
@@ -23,6 +25,7 @@ public class QuestionController {
 	@GetMapping("query/{id}/listquestions")
 	public String showQuestions(@PathVariable("id") Long queryId, Model model) {
 		model.addAttribute("questions", questionRepo.findByQuery(queryRepo.findById(queryId).get()));
+		model.addAttribute("query", queryRepo.findById(queryId).get());
 		return "listquestions";
 	}
 
@@ -31,6 +34,7 @@ public class QuestionController {
 	public String addQuestion(@PathVariable("id") Long queryId, Model model) {
 		model.addAttribute("query", queryRepo.findById(queryId).get());
 		model.addAttribute("question", new Question());
+		model.addAttribute("types", Type.values());
 		return "addquestion";
 	}
 
