@@ -26,10 +26,10 @@ public class Team1projectApplication {
 			queryRepo.save(new Query("Opintojaksopalaute", "Anna palautetta opintojaksosta"));
 			queryRepo.save(new Query("query 2", "description 2"));
 			queryRepo.save(new Query("query 3", "description 3"));
-			questionRepo.save(new Question("Miten arvioisit oman oppimisen toteutumista?", queryRepo.findById((long) 1).get()));
-			questionRepo.save(new Question("Mitkä asiat edistivät oppimistasi?", queryRepo.findById((long) 1).get()));
-			questionRepo.save(new Question("Miten kehittäisit toteutusta, jotta osaamistavoitteet saavutettaisiin paremmin?", queryRepo.findById((long) 1).get()));
-			questionRepo.save(new Question("Haluatko antaa muuta palautetta toteutuksesta?", queryRepo.findById((long) 1).get()));
+			questionRepo.save(new Question(Type.TEXT, "Miten arvioisit oman oppimisen toteutumista?", queryRepo.findById((long) 1).get()));
+			questionRepo.save(new Question(Type.TEXT, "Mitkä asiat edistivät oppimistasi?", queryRepo.findById((long) 1).get()));
+			questionRepo.save(new Question(Type.TEXT, "Miten kehittäisit toteutusta, jotta osaamistavoitteet saavutettaisiin paremmin?", queryRepo.findById((long) 1).get()));
+			questionRepo.save(new Question(Type.TEXT, "Haluatko antaa muuta palautetta toteutuksesta?", queryRepo.findById((long) 1).get()));
 			questionRepo.save(new Question(Type.RADIOBUTTON, "testikysymys1", queryRepo.findById((long) 2).get()));
 			questionRepo.save(new Question(Type.TEXT, "testikysymys2", queryRepo.findById((long) 2).get()));
 			answerRepo.save(new Answer("vastaus", questionRepo.findById((long) 1).get()));

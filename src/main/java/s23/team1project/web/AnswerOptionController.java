@@ -30,13 +30,22 @@ public class AnswerOptionController {
 		return "addansweroption";
 	}
 	
+	//Listing AnswerOptions
+	@GetMapping("query/{queryId}/question/{questionId}/listansweroptions")
+	public String listAnswerOptions(@PathVariable("questionId") Long questionId, Model model) {
+		Question question = questionRepo.findById(questionId).get();
+		model.addAttribute("question", question);
+		model.addAttribute("answeroptions", answerOptionRepo.findByQuestion(question));
+		return "listansweroptions";
+	}
+	
 	// Saving AnswerOption
 	@PostMapping("query/{queryId}/question/{questionId}/saveansweroption")
 	public String saveAnswerOption(@PathVariable("questionId") Long questionId, AnswerOption answerOption) {
 		Question question = questionRepo.findById(questionId).get();
 		answerOption.setQuestion(question);
 		answerOptionRepo.save(answerOption);
-		return "redirect:../../../{queryId}/listquestions";
+		return "redirect:listansweroptions";
 	}
 	
 }

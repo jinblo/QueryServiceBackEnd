@@ -22,13 +22,16 @@
 		<table class="table table-striped">
 			<tr>
 				<th>ID</th>
-				<th colspan="3">Question</th>
+				<th>Question</th>
+				<th>Type</th>
+				<th></th>
 			</tr>
 			<tr th:each="question : ${questions}">
 				<td th:text="${question.id}"></td>
 				<td th:text="${question.questionText}"></td>
-				<td th:if="${question.Type}"><a th:href="@{question/{id}/addansweroption(id=${question.id})}" class="btn btn-primary" th:text="'Add answer option'"></a></td>
-				<td><a th:href="@{deletequestion/{id}(id=${question.id})}" class="btn btn-danger" th:text="'Delete'"></a></td>
+				<td th:text="${question.Type}"></td>
+				<td><a th:href="@{deletequestion/{id}(id=${question.id})}" class="btn btn-danger" th:text="'Delete'"></a>
+				<a th:if="${question.Type.displayName == 'Radiobutton'}" th:href="@{question/{id}/listansweroptions(id=${question.id})}" class="btn btn-primary" th:text="'Answer options'"></a></td>
 			</tr>
 		</table>
 	</div>

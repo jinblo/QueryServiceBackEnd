@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css"
+	th:href="@{/css/bootstrap.min.css}" />
+</head>
+
+<body>
+	<div class="container">
+		<h1 th:text="'Answer options'"></h1>
+		<br />
+		<h4 th:text="${question.questionText}"></h4>
+		<br />
+		<p>
+			<a th:href="@{/index}" class="btn btn-primary">Queries</a>
+			<a th:href="@{../../listquestions}" class="btn btn-primary">Questions</a>
+			<a href="addansweroption" class="btn btn-success">New Answer Option</a>
+		</p>
+		<table class="table table-striped">
+			<tr>
+				<th>ID</th>
+				<th>Answer Option</th>
+			</tr>
+			<tr th:each="answeroption : ${answeroptions}">
+				<td th:text="${answeroption.id}"></td>
+				<td th:text="${answeroption.answerOptionText}"></td>				
+			</tr>
+		</table>
+	</div>
+</body>
+
+</html>
