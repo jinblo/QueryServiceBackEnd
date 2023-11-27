@@ -41,11 +41,11 @@ public class Question {
 		this.query = query;
 	}
 	
-	public Question(String questionText, Query query, Type type) {
+	public Question(Type type, String questionText, Query query) {
 		super();
+		this.type = type;
 		this.questionText = questionText;
 		this.query = query;
-		this.type = type;
 	}
 
 	public List<Answer> getAnswers() {

@@ -19,9 +19,13 @@
 			<form th:object="${question}" th:action="@{savequestion}"
 				method="post">
 				<input type="hidden" th:field="*{id}">
+				<label for "type" th:text="'Select question type'" /><br />
+				<select name="type" th:field="*{type}">
+        			<option th:each="type : ${types}" th:value="${type}" th:text="${type.displayName}"></option>
+        		</select><br /><br />
 				<div class="form-group">
-					<label for="questionText">Question</label> <input type="text" id="questionText"
-						th:field="*{questionText}" class="form-control">
+					<label for="questionText">Question</label>
+					<input type="text" id="questionText" th:field="*{questionText}" class="form-control">
 				</div>
 				<div>
 					<br />
