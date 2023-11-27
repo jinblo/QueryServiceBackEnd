@@ -40,6 +40,13 @@ public class Question {
 		this.questionText = questionText;
 		this.query = query;
 	}
+	
+	public Question(String questionText, Query query, Type type) {
+		super();
+		this.questionText = questionText;
+		this.query = query;
+		this.type = type;
+	}
 
 	public List<Answer> getAnswers() {
 		return answers;

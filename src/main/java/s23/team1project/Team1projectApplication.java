@@ -11,6 +11,7 @@ import s23.team1project.domain.Query;
 import s23.team1project.domain.QueryRepository;
 import s23.team1project.domain.Question;
 import s23.team1project.domain.QuestionRepository;
+import s23.team1project.domain.Type;
 
 @SpringBootApplication
 public class Team1projectApplication {
@@ -29,8 +30,8 @@ public class Team1projectApplication {
 			questionRepo.save(new Question("Mitkä asiat edistivät oppimistasi?", queryRepo.findById((long) 1).get()));
 			questionRepo.save(new Question("Miten kehittäisit toteutusta, jotta osaamistavoitteet saavutettaisiin paremmin?", queryRepo.findById((long) 1).get()));
 			questionRepo.save(new Question("Haluatko antaa muuta palautetta toteutuksesta?", queryRepo.findById((long) 1).get()));
-			questionRepo.save(new Question("test", queryRepo.findById((long) 2).get()));
-			questionRepo.save(new Question("test2", queryRepo.findById((long) 2).get()));
+			questionRepo.save(new Question("testikysymys1", queryRepo.findById((long) 2).get(), Type.RADIOBUTTON));
+			questionRepo.save(new Question("testikysymys2", queryRepo.findById((long) 2).get(), Type.TEXT));
 			answerRepo.save(new Answer("vastaus", questionRepo.findById((long) 1).get()));
 
 
