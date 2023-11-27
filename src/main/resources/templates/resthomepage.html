@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+</head>
+
+<body>
+	<h1>All queries</h1>
+	<br />
+	<h2>
+		Method GET Endpoint: /queries
+	</h2>
+	<h2>JSON Example:</h2>
+	<div>
+		<pre>
+        [
+            {
+                "id": 1,
+                "title": "Opintojaksopalaute",
+                "description": "Anna palautetta opintojaksosta",
+                "questions": [
+                    {
+                        "id": 1,
+                        "type": null,
+                        "questionText": "Miten arvioisit oman oppimisen toteutumista?",
+                        "answers": [
+                            {
+                                "id": 1,
+                                "answerText": "vastaus"
+                            }
+                        ],
+                        "answerOptions": []
+                    },
+                    {
+                        "id": 2,
+                        "type": null,
+                        "questionText": "Mitkä asiat edistivät oppimistasi?",
+                        "answers": [],
+                        "answerOptions": []
+                    },
+                ]
+            },
+            {
+                "id": 2,
+                "title": "query 2",
+                "description": "description 2",
+                "questions": [
+                    {
+                        "id": 5,
+                        "type": null,
+                        "questionText": "test",
+                        "answers": [],
+                        "answerOptions": []
+                    },
+                    {
+                        "id": 6,
+                        "type": null,
+                        "questionText": "test2",
+                        "answers": [],
+                        "answerOptions": []
+                    }
+                ]
+            }
+        ]
+    </pre>
+	</div>
+	<h1>Show a query by query id</h1>
+	<br />
+	<h2>
+		GET/queries/{queryId} <span style="text-decoration: underline; color: violet;">/queries/2</span>
+	</h2>
+	<h2>
+	JSON Example:
+	</h2>
+	<div>
+		<pre>
+{
+    "id": 2,
+    "title": "query 2",
+    "description": "description 2",
+    "questions": [
+        {
+            "id": 5,
+            "type": null,
+            "questionText": "test",
+            "answers": [],
+            "answerOptions": []
+        },
+        {
+            "id": 6,
+            "type": null,
+            "questionText": "test2",
+            "answers": [],
+            "answerOptions": []
+        }
+    ]
+}
+</pre>
+	</div>
+	<h1>Listing questions of a specific query by query id</h1>
+	<br />
+	<h2>
+		GET/queries/{queryId}/questions <span style="text-decoration: underline; color: violet;">/queries/2/questions</span>
+	</h2>
+	<h2>
+	JSON Example:
+	</h2>
+	<div>
+		<pre>
+[
+  {
+    "id": 5,
+    "type": null,
+    "questionText": "test",
+    "answers": [
+      
+    ],
+    "answerOptions": [
+      
+    ]
+  },
+  {
+    "id": 6,
+    "type": null,
+    "questionText": "test2",
+    "answers": [
+      
+    ],
+    "answerOptions": [
+      
+    ]
+  }
+]
+</pre>
+	</div>
+		<h1>Saving answers to answerRepository</h1>
+	<br />
+	<h2>
+		POST/queries/{queryId}/answers <span style="text-decoration: underline; color: violet;">/queries/2/answers</span>
+	</h2>
+	<h2>
+	JSON Example:
+	</h2>
+	<div>
+		<pre>
+
+</pre>
+	</div>
+	
+</body>
+
+</html>
