@@ -11,7 +11,7 @@
 	<h1>All queries</h1>
 	<br />
 	<h2>
-		Method GET Endpoint: /queries
+		Method GET Endpoint: /queries <a href="/queries" style="text-decoration: underline; color: violet;">/queries</a>
 	</h2>
 	<h2>JSON Example:</h2>
 	<div>
@@ -70,7 +70,7 @@
 	<h1>Show a query by query id</h1>
 	<br />
 	<h2>
-		GET/queries/{queryId} <span style="text-decoration: underline; color: violet;">/queries/2</span>
+		GET/queries/{queryId} <a href="/queries/2" style="text-decoration: underline; color: violet;">/queries/2</a>
 	</h2>
 	<h2>
 	JSON Example:
@@ -103,7 +103,7 @@
 	<h1>Listing questions of a specific query by query id</h1>
 	<br />
 	<h2>
-		GET/queries/{queryId}/questions <span style="text-decoration: underline; color: violet;">/queries/2/questions</span>
+		GET/queries/{queryId}/questions <a href="/queries/2/questions" style="text-decoration: underline; color: violet;">/queries/2/questions</a>
 	</h2>
 	<h2>
 	JSON Example:
@@ -139,14 +139,40 @@
 		<h1>Saving answers to answerRepository</h1>
 	<br />
 	<h2>
-		POST/queries/{queryId}/answers <span style="text-decoration: underline; color: violet;">/queries/2/answers</span>
+		POST/queries/{queryId}/answers <span style="text-decoration: underline; color: violet;">/queries/1/answers</span>
 	</h2>
+	
 	<h2>
 	JSON Example:
 	</h2>
 	<div>
 		<pre>
-
+	[
+    {
+        "id": 1,
+        "answerText": "vastaus"
+    },
+    {
+        "id": 2,
+        "answerText": "vastausvaihtoehto1"
+    },
+    {
+        "id": 3,
+        "answerText": "opkppkkp"
+    },
+    {
+        "id": 4,
+        "answerText": "l,,p,,pppl"
+    },
+    {
+        "id": 5,
+        "answerText": "kkkkkpkpkp"
+    },
+    {
+        "id": 6,
+        "answerText": "vastausvaihtoehto1"
+    }
+]
 </pre>
 	</div>
 	
