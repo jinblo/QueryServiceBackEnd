@@ -30,7 +30,7 @@ public class Team1projectApplication {
 			queryRepo.save(new Query("query 3", "description 3"));
 			questionRepo.save(new Question(Type.TEXT, "Miten arvioisit oman oppimisen toteutumista?", queryRepo.findById((long) 1).get()));
 			questionRepo.save(new Question(Type.TEXT, "Mitkä asiat edistivät oppimistasi?", queryRepo.findById((long) 1).get()));
-			questionRepo.save(new Question(Type.RADIOBUTTON, "Miten tyytyväinen olet saamasi ohjaukseen?", queryRepo.findById((long) 1).get()));
+			questionRepo.save(new Question(Type.RADIOBUTTON, "Miten tyytyväinen olet saamaasi ohjaukseen?", queryRepo.findById((long) 1).get()));
 			questionRepo.save(new Question(Type.TEXT, "Miten kehittäisit toteutusta, jotta osaamistavoitteet saavutettaisiin paremmin?", queryRepo.findById((long) 1).get()));
 			questionRepo.save(new Question(Type.RADIOBUTTON, "Minkä arvosanan antaisit toteutukselle?", queryRepo.findById((long) 1).get()));
 			questionRepo.save(new Question(Type.TEXT, "Haluatko antaa muuta palautetta toteutuksesta?", queryRepo.findById((long) 1).get()));
