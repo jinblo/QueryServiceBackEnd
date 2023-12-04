@@ -31,7 +31,7 @@
 				</div>
 				<div>
 					<br />
-					<a th:href="@{/query/{id}/listquestions(id=${id})}" class="btn btn-danger">Cancel</a>
+					<a th:href="@{/query/{id}/question/{questionid}/listansweroptions(id=${{question.query.id}},questionid=${{question.id}})}" class="btn btn-danger">Cancel</a>
 					<input type="submit" value="Save" class="btn btn-success"></input>
 				</div>
 			</form>
