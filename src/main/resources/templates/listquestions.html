@@ -1,40 +1,80 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-<title></title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css"
-	th:href="@{/css/bootstrap.min.css}" />
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        th:href="@{https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css}" />
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #111; /* Set a fully dark background color */
+            color: #fff; /* Set text color for dark mode */
+        }
+
+        .container {
+            text-align: center; /* Center text horizontally */
+            background-color: #222; /* Set a darker background color for the container */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+            color: #fff; /* Set text color for the container */
+        }
+
+        h1 {
+            color: #fff; /* Set text color for light mode */
+        }
+
+        table {
+            background-color: #333; /* Set a dark background color for the table */
+        }
+
+        th, td {
+            border-color: #444; /* Set border color for better visibility */
+            color: #fff; /* Set text color for table cells */
+        }
+
+        a {
+            color: #00f; /* Set link color */
+        }
+
+    </style>
 </head>
 
 <body>
-	<div class="container">
-		<h1 th:text="'Questions'">Questions</h1>
-		<br />
-		<h4 th:text="${query.title}"></h4>
-		<br />
-		<p>
-			<a th:href="@{/index}" class="btn btn-primary">Queries</a>
-			<a href="addquestion" class="btn btn-success">New Question</a>
-		</p>
-		<table class="table table-striped">
-			<tr>
-				<th>ID</th>
-				<th>Question</th>
-				<th>Type</th>
-				<th></th>
-			</tr>
-			<tr th:each="question : ${questions}">
-				<td th:text="${question.id}"></td>
-				<td th:text="${question.questionText}"></td>
-				<td th:text="${question.Type}"></td>
-				<td><a th:href="@{deletequestion/{id}(id=${question.id})}" class="btn btn-danger" th:text="'Delete'"></a>
-				<a th:if="${question.Type.displayName == 'Radiobutton'}" th:href="@{question/{id}/listansweroptions(id=${question.id})}" class="btn btn-primary" th:text="'Answer options'"></a></td>
-			</tr>
-		</table>
-	</div>
+    <div class="container">
+        <h1 th:text="'Questions'">Questions</h1>
+        <br />
+        <h4 th:text="${query.title}"></h4>
+        <br />
+        <p>
+            <a th:href="@{/index}" class="btn btn-primary">Queries</a>
+            <a href="addquestion" class="btn btn-success">New Question</a>
+        </p>
+        <table class="table table-striped">
+            <tr>
+                <th>ID</th>
+                <th>Question</th>
+                <th>Type</th>
+                <th></th>
+            </tr>
+            <tr th:each="question : ${questions}">
+                <td th:text="${question.id}"></td>
+                <td th:text="${question.questionText}"></td>
+                <td th:text="${question.Type}"></td>
+                <td><a th:href="@{deletequestion/{id}(id=${question.id})}" class="btn btn-danger" th:text="'Delete'"></a>
+                    <a th:if="${question.Type.displayName == 'Radiobutton'}"
+                        th:href="@{question/{id}/listansweroptions(id=${question.id})}" class="btn btn-primary"
+                        th:text="'Answer options'"></a></td>
+            </tr>
+        </table>
+    </div>
 </body>
 
 </html>

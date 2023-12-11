@@ -9,62 +9,46 @@
 
     <style>
         body {
-            color: black;
-            background-color: white;
-            font-size: 16px; /* Set the font size to your preferred value */
-        }
+		    display: flex;
+		    justify-content: center;
+		    align-items: center;
+		    min-height: 100vh;
+		    margin: 0;
+		    background-color: #111; /* Set a fully dark background color */
+		    color: #fff; /* Set text color for dark mode */
+		}
 
-        .container {
-            margin-top: 50px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 10vh; /* Set minimum height to 100% of viewport height */
-        }
+		.container {
+		    background-color: #222; /* Set a darker background color for the container */
+		    padding: 20px;
+		    border-radius: 8px;
+		    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+		    color: #fff; /* Set text color for the container */
+		}
+		
+		h1 {
+		    color: #fff; /* Set text color for light mode */
+		}
+		
+		table {
+		    background-color: #333; /* Set a dark background color for the table */
+		}
+		
+		th, td {
+		    border-color: #444; /* Set border color for better visibility */
+		    color: #fff; /* Set text color for table cells */
+		}
+		
+		a {
+		    color: #00f; /* Set link color */
+		}
 
-        body.dark-mode {
-            color: #fff;
-            background-color: #333;
-        }
-
-        .dark-mode .container,
-        .dark-mode .container-fluid,
-        .dark-mode .table {
-            background-color: dark;
-            color: #fff;
-        }
-
-        .dark-mode th,
-        .dark-mode td {
-            border: 1px solid #777;
-            color: #fff;
-        }
-
-        .dark-mode a {
-            color: #00f;
-        }
-
-        .dark-mode h1 {
-            color: #fff;
-        }
-
-        .dark-mode .btn-success,
-        .dark-mode .btn-primary,
-        .dark-mode .btn-danger {
-            color: #ffffff;
-        }
     </style>
 </head>
 
-<body class="bg-light">
+<body>
     <div class="container">
         <h1>Queries</h1>
-        <br />
-        <div class="custom-control custom-switch">
-            <input type="checkbox" class="custom-control-input" id="darkModeSwitch" onchange="toggleDarkMode()">
-            <label class="custom-control-label" for="darkModeSwitch">Light / Dark Mode</label>
-        </div>
         <br />
         <p>
             <a href="/addquery" class="btn btn-success">New Query</a>
@@ -86,13 +70,6 @@
             </tr>
         </table>
     </div>
-
-    <script>
-        function toggleDarkMode() {
-            document.body.classList.toggle('dark-mode');
-            document.body.classList.toggle('bg-dark');
-        }
-    </script>
 </body>
 
 </html>

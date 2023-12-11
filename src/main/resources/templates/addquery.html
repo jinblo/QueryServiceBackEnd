@@ -1,34 +1,73 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-<title>Add Query</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css"
-	th:href="@{/css/bootstrap.min.css}" />
+    <title>Add Query</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        th:href="@{https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css}" />
+
+    <style>
+        body {
+		    display: flex;
+		    justify-content: center;
+		    align-items: center;
+		    min-height: 100vh;
+		    margin: 0;
+		    background-color: #111; /* Set a fully dark background color */
+		    color: #fff; /* Set text color for dark mode */
+		}
+
+		.container {
+		    background-color: #222; /* Set a darker background color for the container */
+		    padding: 20px;
+		    border-radius: 8px;
+		    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+		    color: #fff; /* Set text color for the container */
+		}
+		
+		h1 {
+		    color: #fff; /* Set text color for light mode */
+		}
+		
+		table {
+		    background-color: #333; /* Set a dark background color for the table */
+		}
+		
+		th, td {
+		    border-color: #444; /* Set border color for better visibility */
+		    color: #fff; /* Set text color for table cells */
+		}
+		
+		a {
+		    color: #00f; /* Set link color */
+		}
+
+    </style>
 </head>
 
 <body>
-	<div class="container">
-		<h1>Add a New Query</h1>
-		<br />
-		<div>
-			<form th:object="${query}" th:action="@{savequery}" method="post">
-				<div class="form-group">
-					<label for="title">Title</label> <input type="text" id="title"
-						th:field="*{title}" class="form-control">
-				</div>
-				<div class="form-group">
-					<label for="description">Description</label> <input type="text"
-						id="description" th:field="*{description}" class="form-control">
-				</div>
-				<div>
-					<br />
-					<a th:href="@{/index}" class="btn btn-danger">Cancel</a>
-					<input type="submit" value="Save" class="btn btn-success"></input>
-				</div>
-			</form>
-		</div>
-	</div>
+    <div class="container text-center"> <!-- Add text-center class here -->
+        <h1>Add a New Query</h1>
+        <br />
+        <div>
+            <form th:object="${query}" th:action="@{savequery}" method="post">
+                <div class="form-group">
+                    <label for="title">Title</label> <input type="text" id="title"
+                        th:field="*{title}" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label> <input type="text"
+                        id="description" th:field="*{description}" class="form-control">
+                </div>
+                <div>
+                    <br />
+                    <a th:href="@{/index}" class="btn btn-danger">Cancel</a>
+                    <input type="submit" value="Save" class="btn btn-success"></input>
+                </div>
+            </form>
+        </div>
+    </div>
 </body>
+
+</html>

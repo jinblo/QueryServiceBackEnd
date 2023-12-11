@@ -3,38 +3,71 @@
 	xmlns:th="http://www.thymeleaf.org">
 
 <head>
-<title>Add Answer Option</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css"
-	th:href="@{/css/bootstrap.min.css}" />
+    <title>Add Answer Option</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        th:href="@{https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css}" />
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #111; /* Set a fully dark background color */
+            color: #fff; /* Set text color for dark mode */
+        }
+
+        .container {
+            text-align: center; /* Center-align content horizontally */
+            background-color: #222; /* Set a darker background color for the container */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+            color: #fff; /* Set text color for the container */
+        }
+
+        h1 {
+            color: #fff; /* Set text color for light mode */
+        }
+
+        table {
+            background-color: #333; /* Set a dark background color for the table */
+        }
+
+        th, td {
+            border-color: #444; /* Set border color for better visibility */
+            color: #fff; /* Set text color for table cells */
+        }
+
+        a {
+            color: #00f; /* Set link color */
+        }
+    </style>
 </head>
 
 <body>
-	<div class="container">
-		<h1>Add Answer Option</h1>
-		<br />
-		<h5 th:text="${{question.questionText}}"></h5>
-		<br />
-		<div>
-			<form th:object="${answerOption}" th:action="@{saveansweroption}"
-				method="post">
-				<!-- tää ei toimi oikein
-				<select id="question" disabled
-						th:field="*{question}" class="form-control">
-						<option th:each="question: ${question}"
-							th:value="${question.id}" th:text="${question.questionText}"></option>
-					</select>
-				<input type="text" th:field="*{question}" th:value="${{question.id}}"></input> -->
-				<div class="form-group">
-					<label for="answerOptionText">Answer Option</label> <input type="text" id="answerOptionText"
-						th:field="*{answerOptionText}" class="form-control">
-				</div>
-				<div>
-					<br />
-					<a th:href="@{/query/{id}/question/{questionid}/listansweroptions(id=${{question.query.id}},questionid=${{question.id}})}" class="btn btn-danger">Cancel</a>
-					<input type="submit" value="Save" class="btn btn-success"></input>
-				</div>
-			</form>
-		</div>
-	</div>
+    <div class="container">
+        <h1>Add Answer Option</h1>
+        <br />
+        <h5 th:text="${{question.questionText}}"></h5>
+        <br />
+        <div>
+            <form th:object="${answerOption}" th:action="@{saveansweroption}" method="post">
+                <div class="form-group">
+                    <label for="answerOptionText">Answer Option</label>
+                    <input type="text" id="answerOptionText" th:field="*{answerOptionText}" class="form-control">
+                </div>
+                <div>
+                    <br />
+                    <a th:href="@{/query/{id}/question/{questionid}/listansweroptions(id=${{question.query.id}},questionid=${{question.id}})}"
+                        class="btn btn-danger">Cancel</a>
+                    <input type="submit" value="Save" class="btn btn-success"></input>
+                </div>
+            </form>
+        </div>
+    </div>
 </body>
+
+</html>
