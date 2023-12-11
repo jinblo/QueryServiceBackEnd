@@ -44,12 +44,11 @@ public class Team1projectApplication {
 			answerOptionRepo.save(new AnswerOption("En osaa sanoa", questionRepo.findById((long) 3).get()));
 			answerOptionRepo.save(new AnswerOption("Melko tyytymätön", questionRepo.findById((long) 3).get()));
 			answerOptionRepo.save(new AnswerOption("Erittäin tyytymätön", questionRepo.findById((long) 3).get()));
-			answerOptionRepo.save(new AnswerOption("1", questionRepo.findById((long) 5).get()));
-			answerOptionRepo.save(new AnswerOption("2", questionRepo.findById((long) 5).get()));
-			answerOptionRepo.save(new AnswerOption("3", questionRepo.findById((long) 5).get()));
-			answerOptionRepo.save(new AnswerOption("4", questionRepo.findById((long) 5).get()));
-			answerOptionRepo.save(new AnswerOption("5", questionRepo.findById((long) 5).get()));
-
+			answerOptionRepo.save(new AnswerOption("Kiitettävä (5)", questionRepo.findById((long) 5).get()));
+			answerOptionRepo.save(new AnswerOption("Erittäin hyvä (4)", questionRepo.findById((long) 5).get()));
+			answerOptionRepo.save(new AnswerOption("Hyvä (3)", questionRepo.findById((long) 5).get()));
+			answerOptionRepo.save(new AnswerOption("Tyydyttävä (2)", questionRepo.findById((long) 5).get()));
+			answerOptionRepo.save(new AnswerOption("Välttävä (1)", questionRepo.findById((long) 5).get()));
 		};
 	}
 
