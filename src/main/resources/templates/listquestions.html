@@ -63,13 +63,14 @@
                 <th>Question</th>
                 <th>Type</th>
                 <th></th>
+                <th></th>
             </tr>
             <tr th:each="question : ${questions}">
                 <td th:text="${question.id}"></td>
                 <td th:text="${question.questionText}"></td>
                 <td th:text="${question.Type}"></td>
-                <td><a th:href="@{deletequestion/{id}(id=${question.id})}" class="btn btn-danger" th:text="'Delete'"></a>
-                    <a th:if="${question.Type.displayName == 'Radiobutton'}"
+                <td><a th:href="@{deletequestion/{id}(id=${question.id})}" class="btn btn-danger" th:text="'Delete'"></a></td>
+                <td><a th:if="${question.Type.displayName == 'Radiobutton'}"
                         th:href="@{question/{id}/listansweroptions(id=${question.id})}" class="btn btn-primary"
                         th:text="'Answer options'"></a></td>
             </tr>

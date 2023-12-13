@@ -44,9 +44,6 @@
             color: #00f;
         }
 
-        .btn-group {
-            margin-top: 20px;
-        }
     </style>
 </head>
 
@@ -56,7 +53,7 @@
         <br />
         <h4 th:text="${question.questionText}"></h4>
         <br />
-        <p class="btn-group">
+        <p>
             <a th:href="@{/index}" class="btn btn-primary">Queries</a>
             <a th:href="@{../../listquestions}" class="btn btn-primary">Questions</a>
             <a href="addansweroption" class="btn btn-success">New Answer Option</a>

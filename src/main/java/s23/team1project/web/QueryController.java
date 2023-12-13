@@ -17,7 +17,7 @@ public class QueryController {
 	private QueryRepository queryRepo;
 
 	// Query listing
-	@GetMapping("/")
+	@GetMapping("/index")
 	public String index(Model model) {
 		model.addAttribute("queries", queryRepo.findAll());
 		return "index";
